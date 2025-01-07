@@ -13,8 +13,7 @@ function Register() {
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         email,
-        password,
-        babyBirthday: new Date(babyBirthday)
+        password
       });
       console.log('회원가입 응답:', response.data);
       alert('회원가입이 완료되었습니다.');
