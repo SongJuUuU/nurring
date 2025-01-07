@@ -9,7 +9,8 @@ app.use(cors({
   origin: [
     'https://nurring.vercel.app',
     'https://nurring-km9syzqn6-songs-projects-83486b61.vercel.app',
-    'https://nurring-exg80uvr4-songs-projects-83486b61.vercel.app'
+    'https://nurring-exg80uvr4-songs-projects-83486b61.vercel.app',
+    'https://nurring-g9tr184n6-songs-projects-83486b61.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
