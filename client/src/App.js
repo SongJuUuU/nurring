@@ -9,7 +9,7 @@ import './styles/main.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <div className="App">
         <div className="background-decoration">
           <div className="wave wave-1"></div>
