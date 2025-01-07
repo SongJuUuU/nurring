@@ -6,7 +6,11 @@ const app = express();
 
 // CORS 설정을 가장 먼저
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://nurring.vercel.app'],
+  origin: [
+    'http://localhost:3000',
+    'https://nurring.vercel.app',
+    'https://nurring-km9syzqn6-songs-projects-83486b61.vercel.app'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
