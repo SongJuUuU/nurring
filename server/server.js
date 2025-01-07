@@ -9,17 +9,24 @@ const fs = require('fs');
 const app = express();
 
 // 미들웨어 설정
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://nurring.vercel.app'],  // Vercel 도메인 추가
+  credentials: true
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 // MongoDB 연결
-mongoose.connect('mongodb://127.0.0.1/parenting-diary', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB에 연결되었습니다.'))
-.catch((err) => console.error('MongoDB 연결 실패:', err));
+  useCreateIndex: true,  // 추가
+  useFindAndModify: false  // 추가
+}).then(() => {
+  console.log('MongoDB 연결 성공');
+}).catch((err) => {
+  console.error('MongoDB 연결 실패:', err);
+});
 
 // MongoDB 연결 이벤트 리스너 추가
 mongoose.connection.on('error', (err) => {
